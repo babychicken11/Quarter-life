@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://bgxqhg7tobbkp"]
+
+[ext_resource type="Script" uid="uid://hnus5us43s6x" path="res://Scripts/player.gd" id="1_qqcod"]
+[ext_resource type="Texture2D" uid="uid://c62j4los37vms" path="res://Assets/Sprites/Sprite-0001.png" id="2_cvnsp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wohnl"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6t5aa")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_x3wgy")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_36dho"]
+radius = 7.071068
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qqcod"]
+radius = 7.0
+
+[node name="Player" type="CharacterBody2D"]
+floor_block_on_wall = false
+safe_margin = 0.1
+script = ExtResource("1_qqcod")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_wohnl")
+autoplay = "default"
+frame_progress = 0.44261622
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_36dho")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -19)
+shape = SubResource("CircleShape2D_qqcod")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
