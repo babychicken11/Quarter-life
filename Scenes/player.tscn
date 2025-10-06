@@ -61,7 +61,7 @@ script = ExtResource("1_qqcod")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_wohnl")
 autoplay = "default"
-frame_progress = 0.44261622
+frame_progress = 0.98885655
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
@@ -73,3 +73,4 @@ shape = SubResource("CircleShape2D_qqcod")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+limit_smoothed = true

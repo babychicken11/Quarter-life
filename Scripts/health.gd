@@ -4,8 +4,12 @@ extends Label
 @export var health = 150
 
 
-var checkX = -251
-var checkY = 8
+#var checkX = -251
+#var checkY = 8
+
+var checkX = -116
+var checkY = -501
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	text = "100/100"
@@ -16,6 +20,7 @@ func _process(delta: float) -> void:
 	text = str(health)+"/"+str(maxhealth)
 	if health <= 0:
 		health = maxhealth
+		get_tree().reload_current_scene()
 		$"..".position.x = checkX
 		$"..".position.y = checkY
 	if health > maxhealth:
